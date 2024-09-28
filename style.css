@@ -120,21 +120,62 @@ header .logo a:hover {
 .burger-menu {
   display: block;
   cursor: pointer;
+  padding-right: 1.5rem;
 }
 
-.burger-menu span {
+/* .burger-menu span {
   display: block;
   width: 25px;
   height: 3px;
   background-color: #333;
   margin: 5px 0;
-}
+} */
 
-/* Show nav links when burger menu is active */
+/* Show nav links when burger menu is active 
 .show-nav {
   display: flex;
 }
+  */
+/* Mobile view: hide the navbar and display burger menu */
+@media (max-width: 768px) {
+  .navbar-list {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    background-color: #333; /* Add background to differentiate */
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+  }
 
+  .navbar-list.show {
+    display: flex; /* Show when toggled */
+  }
+  .navbar-list.open {
+    display: block; /* Show navbar list when open */
+  }
+
+  /* Style the links in the mobile menu */
+  .navbar-list a {
+    padding: 10px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Hover effect */
+  .navbar-list a:hover {
+    background-color: #444;
+  }
+}
+@media (min-width: 768px) {
+  .burger-menu {
+    display: none; /* Visible only on mobile */
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
 /* To ensure content doesn't hide behind the fixed navbar */
 body {
   padding-top: 80px; /* Adjust based on your navbar height */
@@ -298,6 +339,40 @@ h2 {
   font-size: 0.6rem;
   padding: 0.8rem;
   border-radius: 50%;
+}
+
+.loading-skill {
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #f0f0f0; /* Change to your background color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  padding-left: 0.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent); /* Use your accent color here */
+  animation: loading-fill 2s infinite; /* Adjust the duration as needed */
+}
+
+@keyframes loading-fill {
+  0% {
+    transform: translateX(-100%);
+  }
+  90% {
+    transform: translateX(90%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @media (min-width: 768px) {
