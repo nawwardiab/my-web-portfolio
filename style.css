@@ -217,7 +217,8 @@ h2 {
   }
 }
 
-.primary-btn {
+.primary-btn,
+.message--btn {
   background-color: var(--color-accent);
   color: white;
 }
@@ -234,7 +235,8 @@ h2 {
 }
 
 .primary-btn:hover,
-.secondary-btn:hover {
+.secondary-btn:hover,
+.message--btn:hover {
   background-color: var(--color-primary);
   color: white;
 }

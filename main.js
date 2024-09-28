@@ -4,29 +4,26 @@ const skillsSection = document.querySelector(".skills-section");
 const experienceSection = document.querySelector(".experience-section");
 const projectsSection = document.querySelector(".projects-section");
 const contactSection = document.querySelector(".contact-section");
+const btns = document.querySelectorAll(".btn"); // Selecting all buttons
+const plusIcon = document.querySelector(".exp-ticket.contact .fa-plus"); // Select the plus icon
 
-// Set an offset equal to the navbar height
 const navbarHeight = navBar.offsetHeight;
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Navigation bar click event
   navBar.addEventListener("click", (e) => {
     let section;
 
-    switch (e.target.classList.value) {
-      case "home":
-        section = main;
-        break;
-      case "skills":
-        section = skillsSection;
-        break;
-      case "experience":
-        section = experienceSection;
-        break;
-      case "projects":
-        section = projectsSection;
-        break;
-      case "contact":
-        section = contactSection;
-        break;
+    if (e.target.classList.contains("home")) {
+      section = main;
+    } else if (e.target.classList.contains("skills")) {
+      section = skillsSection;
+    } else if (e.target.classList.contains("experience")) {
+      section = experienceSection;
+    } else if (e.target.classList.contains("projects")) {
+      section = projectsSection;
+    } else if (e.target.classList.contains("contact")) {
+      section = contactSection;
     }
 
     if (section) {
@@ -34,11 +31,42 @@ document.addEventListener("DOMContentLoaded", function () {
         behavior: "smooth",
         block: "start",
       });
-
-      window.scrollTo({
-        top: sectionTop - navbarHeight,
-        behavior: "smooth",
-      });
     }
   });
+
+  // Button click event for primary and secondary buttons
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default anchor behavior
+
+      let section;
+
+      if (e.target.classList.contains("primary-btn")) {
+        section = skillsSection;
+      } else if (
+        e.target.classList.contains("secondary-btn") ||
+        e.target.classList.contains("message--btn")
+      ) {
+        section = contactSection;
+      }
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  // Click event for exp-ticket with plus icon to scroll to contact section
+  if (plusIcon) {
+    plusIcon.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default behavior
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
 });
