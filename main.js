@@ -97,4 +97,34 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("scroll", () => {
     scrollToTop.style.display = window.scrollY === 0 ? "none" : "block"; // Only show the button when the user has scrolled down
   });
+  /*
+//  Form Error Handling
+  document
+    .querySelector(".contact-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const form = event.target;
+
+      // Use fetch to send the data to Formspree
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            alert("Thank you for your message!");
+            form.reset(); // Reset the form after successful submission
+          } else {
+            alert("Oops! There was a problem submitting your message.");
+          }
+        })
+        .catch((error) => {
+          alert("Oops! There was a problem submitting your message.");
+        });
+    });
+    */
 });
