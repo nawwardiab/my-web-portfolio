@@ -1,6 +1,6 @@
 # Nawwar Diab
 
-## Front-end Developer
+## Web Developer
 
 I build beautiful web applications implementing modern solutions.
 
@@ -14,16 +14,17 @@ vision to life. -->
 
 1. Soft skills:
 
-   - userfriendly and goal-oriented
-   - teamplayer and lone worker
-   - planning and structuring
    - innovative thinking and problem solving
+   - planning and structuring
+   - client-friendly and goal-oriented
+   - teamplayer and lone worker
 
 2. Technical Skills:
 
-   - reading and writing`?` (contextMenu)[HTML - CSS - sass - bootstrap - tailwind]
+   - HTML
+   - CSS (sass, bootstrap, tailwind css]
    - Javascript
-   - React (loading)
+   - React (Learning...)
 
 3. Work related skills:
 
@@ -31,46 +32,39 @@ vision to life. -->
    - Jira
    - Confluence
    - MS office
-   - SEO Tools (contextMenu)
+   - SEO Tools (Google Ads, Google Search Console, Sistrix, Econda)
 
 4. Creative Skills:
 
-   - creative writing (contextMenu)
-   - SmartCAT & OmegaT
-   - Music (contextMenu)
+   - Writing (Fiction Creative Writing, Content Writing, Journalistic Article)
+   - Translating (SmartCAT & OmegaT)
+   - Music
 
-5. Natural Languages
-6. Other
+5. Languages
+
+- Arabic
+- English
+- German
 
 A web developer, translator, and creative writer with years of
 experience in SEO.
 
-### About
-
-<!-- DESCRIPTION -->
-
-#### experience
+#### Worked with:
 
 <!-- List the names of projects and companies I worked with -->
 
-- Freelance ? (contextMenu) [translation, journalism]
+- -
 - DW Academy
 - Shop Apotheke
-- Bundeskunsthalle
+- Bundeskunsthalle Bonn
 - Rosa-Luxembourg-Stiftung
 - dis:orient
-- Simon-Kucher
+- Simon-Kucher & Partners
 
 #### Projects
 
 <!-- Gallery of projects I built so far -->
 
 ### CONTACT
-
-#### Services
-
-- Writing Content
-- Business Websites
-- Maintenance
 
 <!-- Contact form -->
