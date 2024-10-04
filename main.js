@@ -12,6 +12,7 @@ const btns = document.querySelectorAll(".btn"); // Selecting all buttons
 const plusIcon = document.querySelector(".exp-ticket.contact"); // Select the plus icon
 const infoIcons = document.querySelectorAll(".info-icon");
 const infoWindows = document.querySelectorAll(".info-window");
+const scrollToTop = document.querySelector("#scrollTop");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Navigation bar click event
@@ -103,5 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
     icon.addEventListener("mouseleave", function () {
       infoWindow.classList.add("hidden"); // Hide info window when mouse leaves
     });
+  });
+
+  // Scroll to the top
+  scrollToTop.addEventListener("click", () =>
+    document.body.scrollIntoView({ behavior: "smooth" })
+  );
+
+  // handle scroll
+  document.addEventListener("scroll", () => {
+    // console.log('scroll fired')
+    // console.log('scroll fired', window.scrollY)
+
+    if (window.scrollY === 0) {
+      scrollToTop.style.display = "none";
+    } else {
+      scrollToTop.style.display = "block";
+    }
   });
 });
