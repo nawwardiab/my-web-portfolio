@@ -123,6 +123,10 @@ header .logo a:hover {
   padding-right: 1.5rem;
 }
 
+.burger-menu:hover {
+  color: var(--color-accent);
+}
+
 /* .burger-menu span {
   display: block;
   width: 25px;
@@ -332,6 +336,7 @@ h2 {
   display: flex;
   align-items: center; /* Aligns items vertically */
   justify-content: space-between; /* Adjusts the space between text and icon */
+  position: relative;
 }
 
 .info-icon,
@@ -339,6 +344,23 @@ h2 {
   font-size: 0.6rem;
   padding: 0.8rem;
   border-radius: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+.info-window {
+  position: absolute;
+  top: 2rem;
+  right: 1.3rem;
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-background);
+  color: var(--color-text);
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
 .loading-skill {
@@ -442,7 +464,7 @@ h2 {
   height: 100%; /* Ensure it fills the full grid height */
 }
 
-.grid-item.icon:hover,
+.exp-ticket.contact:hover,
 .grid-item.icon span:hover {
   cursor: pointer;
 }

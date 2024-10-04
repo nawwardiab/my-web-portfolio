@@ -9,7 +9,9 @@ const experienceSection = document.querySelector(".experience-section");
 const projectsSection = document.querySelector(".projects-section");
 const contactSection = document.querySelector(".contact-section");
 const btns = document.querySelectorAll(".btn"); // Selecting all buttons
-const plusIcon = document.querySelector(".exp-ticket.contact .fa-plus"); // Select the plus icon
+const plusIcon = document.querySelector(".exp-ticket.contact"); // Select the plus icon
+const infoIcons = document.querySelectorAll(".info-icon");
+const infoWindows = document.querySelectorAll(".info-window");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Navigation bar click event
@@ -87,6 +89,19 @@ document.addEventListener("DOMContentLoaded", function () {
       burgerMenu.classList.remove("open");
       document.body.classList.remove("no-scroll"); // Re-enable scrolling
       // Allow default action to take place (i.e., navigate to the section)
+    });
+  });
+
+  // Add event listeners to each icon
+  infoIcons.forEach((icon, index) => {
+    const infoWindow = infoWindows[index]; // Get the corresponding info window
+
+    icon.addEventListener("mouseenter", function () {
+      infoWindow.classList.remove("hidden"); // Show info window on hover
+    });
+
+    icon.addEventListener("mouseleave", function () {
+      infoWindow.classList.add("hidden"); // Hide info window when mouse leaves
     });
   });
 });
