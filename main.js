@@ -1,125 +1,100 @@
-const burgerMenu = document.querySelector(".burger-menu"); // Fix the correct selector for the burger menu
-const navBar = document.querySelector(".navbar");
-const navbarList = document.querySelector(".navbar-list");
-const navLinks = document.querySelectorAll(".navbar-list--link"); // Select all links in the navbar
-const body = document.querySelector("body");
-const main = document.querySelector(".main");
-const skillsSection = document.querySelector(".skills-section");
-const experienceSection = document.querySelector(".experience-section");
-const projectsSection = document.querySelector(".projects-section");
-const contactSection = document.querySelector(".contact-section");
-const btns = document.querySelectorAll(".btn"); // Selecting all buttons
-const plusIcon = document.querySelector(".exp-ticket.contact"); // Select the plus icon
-const infoIcons = document.querySelectorAll(".info-icon");
-const infoWindows = document.querySelectorAll(".info-window");
-const scrollToTop = document.querySelector("#scrollTop");
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Navigation bar click event
+  // Selectors for various elements
+  const burgerMenu = document.querySelector(".burger-menu"); // Burger menu icon for toggling navigation
+  const navBar = document.querySelector(".navbar"); // Entire navigation bar
+  const navbarList = document.querySelector(".navbar-list"); // List within the navigation bar
+  const navLinks = document.querySelectorAll(".navbar-list--link"); // All links within the navbar
+  const btns = document.querySelectorAll(".btn"); // All buttons on the page
+  const plusIcon = document.querySelector(".exp-ticket.contact"); // Plus icon in the experience/contact section
+  const infoIcons = document.querySelectorAll(".info-icon"); // All info icons for hover interactions
+  const infoWindows = document.querySelectorAll(".info-window"); // Corresponding info windows for each icon
+  const scrollToTop = document.querySelector("#scrollTop"); // Button to scroll back to the top of the page
+
+  // Section selectors - Each represents different sections of the webpage
+  const sections = {
+    home: document.querySelector(".main"), // Home section
+    skills: document.querySelector(".skills-section"), // Skills section
+    experience: document.querySelector(".experience-section"), // Experience section
+    projects: document.querySelector(".projects-section"), // Projects section
+    contact: document.querySelector(".contact-section"), // Contact section
+  };
+
+  // Helper function for smooth scrolling to a target section
+  const smoothScroll = (section) => {
+    section.scrollIntoView({
+      behavior: "smooth", // Ensures smooth scrolling
+      block: "start", // Scrolls to the top of the section
+    });
+  };
+
+  // Navigation bar click event for scrolling to the appropriate section
   navBar.addEventListener("click", (e) => {
-    let section;
-
-    if (e.target.classList.contains("home")) {
-      section = main;
-    } else if (e.target.classList.contains("skills")) {
-      section = skillsSection;
-    } else if (e.target.classList.contains("experience")) {
-      section = experienceSection;
-    } else if (e.target.classList.contains("projects")) {
-      section = projectsSection;
-    } else if (e.target.classList.contains("contact")) {
-      section = contactSection;
-    }
-
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    if (e.target.classList.contains("home")) smoothScroll(sections.home); // Home button
+    if (e.target.classList.contains("skills")) smoothScroll(sections.skills); // Skills button
+    if (e.target.classList.contains("experience"))
+      smoothScroll(sections.experience); // Experience button
+    if (e.target.classList.contains("projects"))
+      smoothScroll(sections.projects); // Projects button
+    if (e.target.classList.contains("contact")) smoothScroll(sections.contact); // Contact button
   });
 
-  // Button click event for primary and secondary buttons
+  // Button click event for primary and secondary buttons on the page
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault(); // Prevent default anchor behavior
-
-      let section;
-
-      if (e.target.classList.contains("primary-btn")) {
-        section = skillsSection;
-      } else if (
-        e.target.classList.contains("secondary-btn") ||
+      e.preventDefault(); // Prevents default behavior of anchor tags
+      if (e.target.classList.contains("primary-btn"))
+        smoothScroll(sections.skills); // Scroll to skills section on primary button click
+      if (
+        e.target.classList.contains("secondary-btn") || // Scroll to contact section on secondary or message button click
         e.target.classList.contains("message--btn")
       ) {
-        section = contactSection;
-      }
-
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        smoothScroll(sections.contact);
       }
     });
   });
 
-  // Click event for exp-ticket with plus icon to scroll to contact section
+  // Event for plus icon to scroll to the contact section
   if (plusIcon) {
     plusIcon.addEventListener("click", (e) => {
-      e.preventDefault(); // Prevent default behavior
-      contactSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      e.preventDefault(); // Prevents default behavior
+      smoothScroll(sections.contact); // Scroll to contact section
     });
   }
 
-  // Toggle the navbar on burger menu click
+  // Toggle the navigation bar on burger menu click
   burgerMenu.addEventListener("click", () => {
-    navbarList.classList.toggle("open");
-    burgerMenu.classList.toggle("open");
-    document.body.classList.toggle("no-scroll"); // Optional: prevent body from scrolling when menu is open
+    navbarList.classList.toggle("open"); // Toggles the visibility of the navigation list
+    burgerMenu.classList.toggle("open"); // Changes the burger icon appearance
+    document.body.classList.toggle("no-scroll"); // Optionally prevent body from scrolling when menu is open
   });
 
-  // Close the navbar when a link is clicked
+  // Close the navigation bar when a link is clicked
   navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      console.log("Nav link clicked!"); // Debugging line
-      navbarList.classList.remove("open");
-      burgerMenu.classList.remove("open");
-      document.body.classList.remove("no-scroll"); // Re-enable scrolling
-      // Allow default action to take place (i.e., navigate to the section)
+    link.addEventListener("click", () => {
+      navbarList.classList.remove("open"); // Close the navigation list
+      burgerMenu.classList.remove("open"); // Reset the burger icon appearance
+      document.body.classList.remove("no-scroll"); // Re-enable scrolling on the body
     });
   });
 
-  // Add event listeners to each icon
+  // Hover event listeners for info icons to show corresponding info windows
   infoIcons.forEach((icon, index) => {
-    const infoWindow = infoWindows[index]; // Get the corresponding info window
-
+    const infoWindow = infoWindows[index]; // Get the corresponding info window for each icon
     icon.addEventListener("mouseenter", function () {
-      infoWindow.classList.remove("hidden"); // Show info window on hover
+      infoWindow.classList.remove("hidden"); // Show the info window when hovering over the icon
     });
-
     icon.addEventListener("mouseleave", function () {
-      infoWindow.classList.add("hidden"); // Hide info window when mouse leaves
+      infoWindow.classList.add("hidden"); // Hide the info window when mouse leaves the icon
     });
   });
 
-  // Scroll to the top
-  scrollToTop.addEventListener("click", () =>
-    document.body.scrollIntoView({ behavior: "smooth" })
-  );
+  // Scroll to the top functionality
+  scrollToTop.addEventListener("click", () => {
+    document.body.scrollIntoView({ behavior: "smooth" }); // Smoothly scroll to the top of the page
+  });
 
-  // handle scroll
+  // Toggle visibility of the scrollToTop button based on scroll position
   document.addEventListener("scroll", () => {
-    // console.log('scroll fired')
-    // console.log('scroll fired', window.scrollY)
-
-    if (window.scrollY === 0) {
-      scrollToTop.style.display = "none";
-    } else {
-      scrollToTop.style.display = "block";
-    }
+    scrollToTop.style.display = window.scrollY === 0 ? "none" : "block"; // Only show the button when the user has scrolled down
   });
 });
