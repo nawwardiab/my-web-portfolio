@@ -50,6 +50,7 @@ body {
 
 .main {
   padding-top: 3rem;
+  width: 85%;
 }
 
 img {
@@ -214,7 +215,7 @@ h2 {
 .hero-img {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .hero-image {
@@ -496,6 +497,18 @@ h2 {
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* gap: 0.2rem; */
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .project-card:hover {
@@ -505,6 +518,7 @@ h2 {
 
 .project-card h3 {
   margin-top: 0;
+  margin-bottom: 0.5rem;
   color: var(--color-text); /* Text color */
 }
 
