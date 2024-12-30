@@ -19,7 +19,7 @@ A personal portfolio created as part of the UI Basics module, showcasing skills 
 
 ## Live Demo
 
-[View the live project](https://nawardiab.github.io/my-web-portfolio/)
+[View the live project](https://nawwardiab.github.io/my-web-portfolio/)
 
 ## Setup
 
